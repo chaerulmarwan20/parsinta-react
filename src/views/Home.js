@@ -1,15 +1,25 @@
 import React from "react";
-import AuthenticatedUser from "../components/AuthenticatedUser";
-import { UserProvider } from "../context/User";
+import { useRecoilState } from "recoil";
+import { theme } from "../store";
 
 const Home = () => {
+  const [currentTheme, setCurrentTheme] = useRecoilState(theme);
+
   return (
     <div className="container">
-      <UserProvider>
-        <div className="d-flex">
-          <div className="me-1">My name is</div> <AuthenticatedUser />
+      <div className="row">
+        <div className="col-md-4">
+          <select
+            value={currentTheme}
+            onChange={(e) => setCurrentTheme(e.target.value)}
+            className="form-control"
+          >
+            <option value="dark">Dark</option>
+            <option value="light">Light</option>
+          </select>
         </div>
-      </UserProvider>
+      </div>
+      <div className="mt-2">You're selecting the {currentTheme} theme.</div>
     </div>
   );
 };
