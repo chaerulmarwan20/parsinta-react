@@ -4,6 +4,8 @@ import Home from "../views/Home";
 import About from "../views/About";
 import Contact from "../views/Contact";
 import Login from "../views/auth/Login";
+import UsersIndex from "../views/users/Index";
+import UsersShow from "../views/users/Show";
 import NotFound from "../views/errors/NotFound";
 import Navbar from "../components/Navbar";
 
@@ -31,6 +33,22 @@ const Router = () => {
         element={
           <Navbar>
             <Contact />
+          </Navbar>
+        }
+      />
+      <Route
+        path="users"
+        element={
+          <Navbar>
+            <UsersIndex />
+          </Navbar>
+        }
+      />
+      <Route
+        path="users/:identifier"
+        element={
+          <Navbar>
+            <UsersShow />
           </Navbar>
         }
       />
