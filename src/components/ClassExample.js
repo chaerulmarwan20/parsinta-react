@@ -59,7 +59,7 @@ class ClassExample extends Component {
                         className="form-control"
                       />
                     </div>
-                    <button type="submit" className="btn btn-primary">
+                    <button type="submit" className="btn btn-primary w-100">
                       Show
                     </button>
                   </form>

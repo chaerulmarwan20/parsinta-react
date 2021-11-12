@@ -3,13 +3,39 @@ import { Routes, Route } from "react-router-dom";
 import Home from "../views/Home";
 import About from "../views/About";
 import Contact from "../views/Contact";
+import Login from "../views/auth/Login";
+import NotFound from "../views/errors/NotFound";
+import Navbar from "../components/Navbar";
 
 const Router = () => {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="about" element={<About />} />
-      <Route path="contact" element={<Contact />} />
+      <Route
+        index
+        element={
+          <Navbar>
+            <Home />
+          </Navbar>
+        }
+      />
+      <Route
+        path="about"
+        element={
+          <Navbar>
+            <About />
+          </Navbar>
+        }
+      />
+      <Route
+        path="contact"
+        element={
+          <Navbar>
+            <Contact />
+          </Navbar>
+        }
+      />
+      <Route path="login" element={<Login />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };
